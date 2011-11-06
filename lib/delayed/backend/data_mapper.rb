@@ -11,14 +11,14 @@ module Delayed
         property :priority,    Integer, :default => 0, :index => :run_at_priority
         property :attempts,    Integer, :default => 0
         property :handler,     Text, :lazy => false
-        property :run_at,      Time, :index => :run_at_priority
-        property :locked_at,   Time, :index => true
+        property :run_at,      DateTime, :index => :run_at_priority
+        property :locked_at,   DateTime, :index => true
         property :locked_by,   Text
-        property :failed_at,   Time
+        property :failed_at,   DateTime
         property :last_error,  Text
                 
         def self.db_time_now
-          Time.now
+          DateTime.now
         end
                 
         def self.find_available(worker_name, limit = 5, max_run_time = Worker.max_run_time)
