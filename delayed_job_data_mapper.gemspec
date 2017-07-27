@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-
+require 'date'
 Gem::Specification.new do |s|
   s.name              = 'delayed_job_data_mapper'
   s.summary           = 'DataMapper backend for delayed_job'
